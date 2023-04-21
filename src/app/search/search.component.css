@@ -1,0 +1,10 @@
+.search-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+span {
+    width: 5vw
+}

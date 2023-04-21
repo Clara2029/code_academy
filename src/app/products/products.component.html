@@ -1,0 +1,24 @@
+<app-search (searchTextChanged)="onSearch($event)" ></app-search>
+<app-filter [all]="getTotalCoursesNumber()" [free]="getTotalFreeCoursesNumber()" [premium]="getTotalPremiumCoursesNumber()" (filterRadioButtonSelectionChanged)="onFilterRadioButtonChanged($event)"></app-filter>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let product of productsList">
+            <ng-container *ngIf="productCountRadioButton === 'All' || productCountRadioButton == product.type">
+                <div class="card col-3" *ngIf="productSearch == '' && productCountRadioButton === 'All' || product.name.toLowerCase().includes(productSearch.toLowerCase())">
+                    <img [src]="product.image" class="card-img-top" [alt]="product.name" height="250" >
+                    <div class="card-body">
+                      <h5 class="card-title">{{product.name}}</h5>
+                      <p class="card-text">{{product.description}}</p>
+                      <div class="d-flex justify-content-evenly">
+                            <span [ngStyle]="{color: product.type == 'Free'? 'Green' : 'Red'}" >{{product.type}}</span>
+                            <span [ngStyle]="{hidden: product.price == '0' ? 'true' : 'false'}" >Price : ${{product.price}}</span>
+                      </div>
+                        <a href="#" class="btn btn-primary m-3">More Details</a>
+                        <a href="#" class="btn btn-warning">Buy it now</a>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

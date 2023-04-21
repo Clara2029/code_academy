@@ -1,0 +1,10 @@
+<div class="form-group">
+    <input class="form-check-input" type="radio" id="all" name="filter" value="All" [(ngModel)]="selectedRadioButtonValue" (change)="onRadioButtonSelectionChanged()">
+    <label class="form-check-label" for="all">All Courses ({{all}})</label>
+
+    <input class="form-check-input" type="radio" id="free" name="filter" value="Free" [(ngModel)]="selectedRadioButtonValue" (change)="onRadioButtonSelectionChanged()">
+    <label class="form-check-label" for="free">Free Courses ({{free}})</label>
+
+    <input class="form-check-input" type="radio" id="premium" name="filter" value="Premium" [(ngModel)]="selectedRadioButtonValue" (change)="onRadioButtonSelectionChanged()">
+    <label class="form-check-label" for="premium">Premium Courses ({{premium}})</label>
+  </div>
